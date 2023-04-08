@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
+const IP = process.env.IP|| "127.0.0.1"
 const PORT = process.env.PORT || 3500;
 const connectDB = require('./database/dbConn')
 const { getUsers, postUser, deleteUser, updateUser } = require('./controller/userController')
