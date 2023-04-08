@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const PORT = process.env.PORT || 3500;
 const connectDB = require('./database/dbConn')
-const { getUsers, postUser } = require('./controller/userController')
+const { getUsers, postUser, deleteUser, updateUser } = require('./controller/userController')
 connectDB();
 
 const app = express();
@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
 
 app.get('/users', getUsers);
 app.post('/users', postUser);
+app.delete('/users', deleteUser);
+app.patch('/users', updateUser);
+
+
 mongoose.connection.on('open', () => {
     console.log('mongoDB connected');
     app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
