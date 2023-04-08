@@ -1,0 +1,2 @@
+- Run the backend using nodemon server.js
+- Run the frontend using npm run dev
